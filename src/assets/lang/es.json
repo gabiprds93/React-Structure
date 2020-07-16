@@ -1,0 +1,21 @@
+{
+  "moviesTitle": "Películas",
+  "moviesDescription": "Lista de películas",
+  "movies": [
+    { "id": "1", "title": "Guerra de las galaxias", "releaseYear": "1977" },
+    { "id": "2", "title": "Volver al futuro", "releaseYear": "1985" },
+    { "id": "3", "title": "Matrix", "releaseYear": "1999" },
+    { "id": "4", "title": "El origen", "releaseYear": "2010" },
+    { "id": "5", "title": "Interestelar", "releaseYear": "2014" }
+  ],
+  "link": "Ir a Películas",
+  "homeTitle": "Casa",
+  "loginTitle": "Logeo",
+  "registerTitle": "Registrar",
+  "sendAuthBtn": "Enviar",
+  "usernameLblAuth":"Usuario",
+  "passwordLblAuth":"Contraseña",
+  "usernameLblAuthRegister":"Usuario",
+  "passwordLblAuthRegister":"Contraseña",
+  "repeatPasswordLblAuthRegister":"Conirmar Contraseña"
+}
