@@ -3,12 +3,15 @@ import React from 'react';
 import './App.css';
 import RootPage from '../../routes';
 import SelectLang from '../../domain/Language/SelectLang';
+import { AuthProvider } from '../../context/Auth/AuthProvider';
 
 function App() {
   return (
     <div className="App">
-      <SelectLang />
-      <RootPage />
+      <AuthProvider>
+        <SelectLang />
+        <RootPage />
+      </AuthProvider>
     </div>
   );
 }

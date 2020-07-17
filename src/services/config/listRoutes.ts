@@ -1,6 +1,7 @@
 const listRoutes = {
   ROOT: '/',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  PROFILE: '/profile',
 };
 
 export default listRoutes;
