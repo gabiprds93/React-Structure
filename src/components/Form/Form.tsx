@@ -16,9 +16,8 @@ const Form: React.FC<IFormProps> = ({fields, handleSubmit, btnText}) => {
       <form onSubmit={handleSubmit}>
         {fields.map((item, index) => {
           return (
-            <Fragment>
+            <Fragment key={index}>
               <Input
-                key={index}
                 label={item.label} 
                 name={item.name}
                 type={item.type}

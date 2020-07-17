@@ -4,7 +4,7 @@ import Form from '../../components/Form/Form';
 import { useTranslation } from "react-i18next";
 
 const RegisterForm = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const registerFields = [
     { label: t('usernameLblAuthRegister'), type: 'text', name: 'username' },

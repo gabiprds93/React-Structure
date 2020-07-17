@@ -18,6 +18,7 @@ i18n
         translations: spanish
       }
     },
+    //lng: "en",
     fallbackLng: "es",
     debug: true,
 

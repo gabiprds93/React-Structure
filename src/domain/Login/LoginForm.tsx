@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Form from '../../components/Form/Form';
 
 const LoginForm = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const loginFields = [
     { label: t('usernameLblAuth'), type: 'text', name: 'username' },

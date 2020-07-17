@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import Title from '../../components/Title/Title';
 
 const Login = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return(
     <Fragment>

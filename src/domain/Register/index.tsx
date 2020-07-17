@@ -6,7 +6,7 @@ import Title from '../../components/Title/Title';
 
 
 const Register = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return(
     <Fragment>

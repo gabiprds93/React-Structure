@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { useTranslation } from "react-i18next";
 import Select from '../../components/Select/Select';
 // import {changeLanguage} from '../redux/actions/languageAction';
@@ -18,8 +17,6 @@ const langOptions = [
 ]
 
 const SelectLang: React.FC<any> = () => {
-
-
   const { i18n } = useTranslation();
 
   const handleChange = (lng: string) => {
@@ -31,6 +28,7 @@ const SelectLang: React.FC<any> = () => {
     <Select 
       options={langOptions} 
       onChange={(e:React.ChangeEvent<HTMLSelectElement>) => handleChange(e.target.value)}
+      defaultValue={window.localStorage.i18nextLng}
     />
   )
 }
