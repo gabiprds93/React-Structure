@@ -17,5 +17,6 @@
   "passwordLblAuth":"Password",
   "usernameLblAuthRegister":"Username",
   "passwordLblAuthRegister":"Password",
-  "repeatPasswordLblAuthRegister":"Conirm Password"
+  "repeatPasswordLblAuthRegister":"Conirm Password",
+  "profileTitle": "Profile"
 }
