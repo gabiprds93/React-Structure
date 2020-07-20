@@ -3,7 +3,6 @@ import React, {Fragment, FormEvent} from 'react';
 import Input, {IInputProps} from '../Input/Input';
 import Button from '../Button/Button';
 
-
 export interface IFormProps {
   fields: IInputProps[];
   handleSubmit: ((event: FormEvent<HTMLFormElement>) => void);
@@ -21,6 +20,7 @@ const Form: React.FC<IFormProps> = ({fields, handleSubmit, btnText}) => {
                 label={item.label} 
                 name={item.name}
                 type={item.type}
+                inputRef={item.inputRef}
               />
               <br/>
             </Fragment>

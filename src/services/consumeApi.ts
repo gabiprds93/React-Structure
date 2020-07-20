@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moment from 'moment-timezone'
 
-const ajax = (
+const consumeApi = (
   method: "get" | "GET" | "delete" | "DELETE" | "head" | "HEAD" | "options" | "OPTIONS" | "post" | "POST" | "put" | "PUT" | "patch" | "PATCH" | "link" | "LINK" | "unlink" | "UNLINK",
   endpoint: string,
   data?: any,
@@ -19,4 +19,4 @@ const ajax = (
   return axios(config)
 }
 
-export default ajax;
+export default consumeApi;

@@ -18,5 +18,47 @@
   "usernameLblAuthRegister":"Username",
   "passwordLblAuthRegister":"Password",
   "repeatPasswordLblAuthRegister":"Conirm Password",
-  "profileTitle": "Profile"
+  "profileTitle": "Profile",
+  "msgApiError":[
+    {
+      "status":400,
+      "msg": "The server could not interpret the request given an invalid syntax."
+    },
+    {
+      "status":401,
+      "msg": "Authentication is required to obtain the requested response."
+    },
+    {
+      "status":403,
+      "msg": "The client does not have the necessary permissions for certain content."
+    },
+    {
+      "status":404,
+      "msg": "The server could not find the requested content."
+    },
+    {
+      "status":408,
+      "msg": "The server wants to disconnect this unused connection."
+    },
+    {
+      "status":500,
+      "msg": "The server has encountered a situation that it does not know how to handle."
+    },
+    {
+      "status":502,
+      "msg": "The server got an invalid response."
+    },
+    {
+      "status":503,
+      "msg": "The server is not ready to handle the request."
+    },
+    {
+      "status":504,
+      "msg": "The server cannot get a response in time."
+    },
+    {
+      "status":505,
+      "msg": "The HTTP version used in the request is not supported by the server."
+    }
+  ]
 }
