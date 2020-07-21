@@ -7,17 +7,26 @@ const RegisterForm = () => {
   const { t } = useTranslation();
 
   const registerFields = [
-    { label: t('usernameLblAuthRegister'), type: 'text', name: 'username' },
-    { label: t('passwordLblAuthRegister'), type: 'password', name: 'clave' },
-    { label: t('repeatPasswordLblAuthRegister'), type: 'password', name: 'clave' },
+    { label: t('usernameLblAuthRegister'), type: 'text', name: 'username', validator: 'userNameValidator' },
+    { label: t('passwordLblAuthRegister'), type: 'password', name: 'clave', validator: 'userNameValidator' },
+    { label: t('repeatPasswordLblAuthRegister'), type: 'password', name: 'clave', validator: 'userNameValidator' },
   ]
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     alert(`Submitting`);
   }
+  const onSubmit = (dataItem: {
+    [name: string]: any;
+  }) => alert(JSON.stringify(dataItem, null, 2));
+
+  const validators = {
+    userNameValidator: (value: string) => !value ?
+    "User Name is required" :
+    value.length < 5 ? "User name should be at least 3 characters long." : "",
+  }
   
   return (
-    <Form fields={registerFields} handleSubmit={handleSubmit} btnText={t('sendAuthBtn')}/>
+    <Form fields={registerFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={validators}/>
   )
 }
 

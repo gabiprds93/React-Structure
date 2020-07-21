@@ -60,5 +60,7 @@
       "status":505,
       "msg": "The HTTP version used in the request is not supported by the server."
     }
-  ]
+  ],
+  "inputRequired": "Required",
+  "passwordError": "Password should be at least 6 characters long."
 }

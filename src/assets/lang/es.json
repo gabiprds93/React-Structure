@@ -60,5 +60,7 @@
       "status":505,
       "msg":"La versión de HTTP usada en la petición no está soportada por el servidor."
     }
-  ]
+  ],
+  "inputRequired": "Requerido",
+  "passwordError": "La Contraseña debe tener por lo menos 6 caracteres"
 }

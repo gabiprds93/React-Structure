@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
+import '@progress/kendo-theme-default/dist/all.css';
 import './App.css';
 import RootPage from '../../routes';
 import SelectLang from '../../domain/Language/SelectLang';

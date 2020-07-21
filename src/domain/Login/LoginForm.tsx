@@ -13,8 +13,7 @@ interface ILoginFormProps {
 
 const LoginForm: React.FC<ILoginFormProps> = ({loginUser}) => {
   const auth = React.useContext(AuthContext);
-  const ref1 = React.useRef();
-  const ref2 = React.useRef();
+
   const { handleSubmit, register, errors } = useForm();
   const { t } = useTranslation();
 
@@ -23,22 +22,28 @@ const LoginForm: React.FC<ILoginFormProps> = ({loginUser}) => {
       label: t('usernameLblAuth'),
       type: 'text',
       name: 'email',
-      inputRef: register
+      inputRef: register,
+      validator: 'userNameValidator'
     },
-    { label: t('passwordLblAuth'), type: 'password', name: 'password', inputRef: register  },
+    { label: t('passwordLblAuth'), type: 'password', name: 'password', inputRef: register, validator: 'passwordValidator'  },
   ]
 
-  const onSubmit = (values:any) => {
-    console.log(values)
+  const validators = {
+    userNameValidator: (value: string) => !value ?
+    t('inputRequired') : "",
+    passwordValidator: (value: string) => !value ?
+    t('inputRequired') :
+    value.length < 7 ? t('passwordError') : "",
+  }
 
-    // event.preventDefault();
+  const onSubmit = (dataItem: {[name: string]: any;}) => {
     alert(`Submitting`);
-    loginUser(values);
-    //auth.login()
+    loginUser(dataItem);
+    //   auth.login()
   }
 
   return (
-    <Form fields={loginFields} handleSubmit={handleSubmit(onSubmit)} btnText={t('sendAuthBtn')} />
+    <Form fields={loginFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={validators} />
   )
 }
 
