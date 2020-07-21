@@ -1,34 +1,41 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
+
 import Select from '../../components/Select/Select';
+import { DropDownListChangeEvent } from '@progress/kendo-react-dropdowns';
 // import {changeLanguage} from '../redux/actions/languageAction';
 
 const langOptions = [ 
   {
-    value: 'es',
+    id: 'es',
     text: 'Español',
-    selected: true
   },
   {
-    value: 'en',
+    id: 'en',
     text: 'English',
-    selected: false
   }
 ]
 
 const SelectLang: React.FC<any> = () => {
   const { i18n } = useTranslation();
 
-  const handleChange = (lng: string) => {
+  const handleChange = (event: DropDownListChangeEvent) => {
     // changeLanguage(lng)
+    let lng = event.target.value.id;
     i18n.changeLanguage(lng);
   };
+
+  const defaultValue = () => {
+    return langOptions.find((item) => {
+      return item.id === window.localStorage.i18nextLng
+    })
+  }
 
   return(
     <Select 
       options={langOptions} 
-      onChange={(e:React.ChangeEvent<HTMLSelectElement>) => handleChange(e.target.value)}
-      defaultValue={window.localStorage.i18nextLng}
+      onChange={handleChange}
+      defaultValue={defaultValue()}
     />
   )
 }
