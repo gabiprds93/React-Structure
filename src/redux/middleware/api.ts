@@ -22,7 +22,7 @@ const api = (store: { getState: () => any }) => (next: (action: any) => any) => 
     .then(response => {
       return next({
         type: successType,
-        payload: response,
+        payload: response.data,
       })
     })
     .catch (error => {

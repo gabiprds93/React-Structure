@@ -1,17 +1,29 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
+import {connect} from 'react-redux';
 
 import Title from '../../../components/Title/Title';
+import { AppState } from '../../../redux/reducers';
+import { UserState } from '../../../redux/types/userTypes';
 
-const Profile = () => {
+interface IProfileProps {
+  user: UserState
+}
+
+const Profile: React.FC<IProfileProps> = ({user}) => {
   const { t } = useTranslation();
-
   return (
     <div>
       <Title>{t('profileTitle')}</Title>
-      <p></p>
+      {user && user.profile && (
+        <p>{user.profile.name}</p>
+      )}
     </div>
   );
 };
 
-export default Profile;
+const mapStateToProps = (state: AppState) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(Profile);

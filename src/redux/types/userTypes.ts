@@ -4,7 +4,7 @@ export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
 
 export interface UserData {
   auth_token: string
-  profile: any
+  client: any
 }
 
 export interface UserCredentials {
@@ -15,7 +15,7 @@ export interface UserCredentials {
 export interface UserState {
   isAuthenticated: boolean
   isFetching: boolean
-  profile?: UserData
+  profile?: UserData['client']
   errors?: any
 }
 

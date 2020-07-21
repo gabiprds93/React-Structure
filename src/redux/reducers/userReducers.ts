@@ -30,7 +30,7 @@ export default function reducer(
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: true,
-        data: action.payload.profile,
+        profile: action.payload.client,
       })
 
     case USER_LOGIN_FAILURE:
