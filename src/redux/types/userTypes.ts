@@ -1,6 +1,7 @@
 export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
+export const CLEAR_USER = 'CLEAR_USER';
 
 export interface UserData {
   auth_token: string
@@ -34,7 +35,12 @@ export interface UserLoginFailureAction {
   error?: any
 }
 
+export interface UserClearAction {
+  type: typeof CLEAR_USER
+}
+
 export type UserActionTypes =
   | UserLoginRequestAction
   | UserLoginSuccessAction
   | UserLoginFailureAction
+  | UserClearAction

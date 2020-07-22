@@ -1,0 +1,1 @@
+export const timeToDeleteAuth = 2000;
