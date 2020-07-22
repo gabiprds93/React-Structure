@@ -63,5 +63,9 @@
   ],
   "inputRequired": "Requerido",
   "passwordError": "La Contraseña debe tener por lo menos 6 caracteres",
-  "differentPasswordError": "Las contraseñas no coinciden."
+  "differentPasswordError": "Las contraseñas no coinciden.",
+  "msgApiErrors": {
+    "400": "EL servidor no pudo inerpretar la solicitud dada una sintaxsis in valida",
+    "505": "La versión de HTTP usada en la petición no está soportada por el servidor."
+  }
 }

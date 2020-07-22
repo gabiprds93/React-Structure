@@ -63,5 +63,9 @@
   ],
   "inputRequired": "Required",
   "passwordError": "Password should be at least 6 characters long.",
-  "differentPasswordError": "Passwords do not match."
+  "differentPasswordError": "Passwords do not match.",
+  "msgApiErrors": {
+    "400": "The server could not interpret the request given an invalid syntax.",
+    "505": "The HTTP version used in the request is not supported by the server."
+  }
 }
