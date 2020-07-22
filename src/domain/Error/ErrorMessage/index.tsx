@@ -5,8 +5,9 @@ interface IErrorMessageProps {
 }
 const ErrorMessage: React.FC<IErrorMessageProps> = ({msgError}) =>{
   const { t } = useTranslation();
+  
   return(
-      <p>{t(msgError)}</p>
+    <p style={{color: 'red'}}>{t(msgError)}</p>
   )
 }
 export default ErrorMessage

@@ -1,30 +1,38 @@
-import React, { Component, ErrorInfo } from 'react';
+import React from 'react';
 
-interface ErrorBoundaryProps {}
+import ErrorMessage from '../ErrorMessage';
+
 interface ErrorBoundaryState {
   hasError: boolean;
+  message: string;
 };
 
-class ErrorBoundary extends Component<ErrorBoundaryProps,ErrorBoundaryState> {
-  state:ErrorBoundaryState ={
-    hasError: false
-  }
-
-  static getDerivedStateFromError(error: any) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error:any, errorInfo:any) {
-    // logErrorToMyService(error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // Puedes renderizar cualquier interfaz de repuesto
-      return <h1>Algo salio mal.</h1>;
+const withError = <P extends object>(Component: React.ComponentType<P>) => {
+  class ErrorBoundary extends React.Component<P> {
+    state: ErrorBoundaryState ={
+      hasError: false,
+      message: '',
     }
 
-    return this.props.children; 
+    componentDidCatch(error: Error) {
+      this.setState({
+        hasError: true,
+        message: error.message
+      })
+      // logErrorToMyService(error, errorInfo);
+    }
+
+    render() {
+      if (this.state.hasError) {
+        return(
+          <ErrorMessage msgError={this.state.message} />
+        )
+      }
+
+      return <Component {...this.props as P} />
+    }
   }
+  return ErrorBoundary;
 }
-export default ErrorBoundary;
+
+export default withError;

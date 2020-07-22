@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import LoginForm from './LoginForm';
 import Title from '../../components/Title/Title';
+import withError from '../Error/ErrorBoundary';
 
 const Login = () => {
   const { t } = useTranslation();
@@ -15,4 +16,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default withError(Login);

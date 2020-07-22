@@ -3,8 +3,8 @@ import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 
 import {IInputProps} from '../Input/Input';
-// import Button from '../Button/Button';
 import Input from '../Input/Input';
+import withError from '../../domain/Error/ErrorBoundary';
 export interface IFormProps {
   fields: IInputProps[];
   handleSubmit: ((values: {
@@ -15,11 +15,12 @@ export interface IFormProps {
 }
 
 const FormComponent: React.FC<IFormProps> = ({fields, handleSubmit, btnText, validators}) => {
+  let error:any = undefined
   return (
     <Fragment>
       <Form 
         onSubmit={handleSubmit}
-        validator={validators}
+        validator={error.validators}
         render={(formRenderProps) => (
           <FormElement style={{maxWidth: 650, margin: 'auto'}}>
             <fieldset className={'k-form-fieldset'}>
@@ -51,4 +52,4 @@ const FormComponent: React.FC<IFormProps> = ({fields, handleSubmit, btnText, val
   )
 };
 
-export default FormComponent;
+export default withError(FormComponent);
