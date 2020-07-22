@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 
 import Form from '../../components/Form/Form';
 import { loginUser } from '../../redux/actions/userActions'
-import { AuthContext } from '../../context/Auth/AuthContext';
 import { UserCredentials } from '../../redux/types/userTypes';
 
 interface ILoginFormProps {
@@ -13,7 +12,6 @@ interface ILoginFormProps {
 }
 
 const LoginForm: React.FC<ILoginFormProps> = ({loginUser}) => {
-  const auth = React.useContext(AuthContext);
 
   const { handleSubmit, register, errors } = useForm();
   const { t } = useTranslation();
