@@ -19,29 +19,20 @@ const FormComponent: React.FC<IFormProps> = ({fields, handleSubmit, btnText, val
     <Fragment>
       <Form 
         onSubmit={handleSubmit}
+        validator={validators}
         render={(formRenderProps) => (
           <FormElement style={{maxWidth: 650, margin: 'auto'}}>
             <fieldset className={'k-form-fieldset'}>
               {fields.map((item, index) => {
                 return (
                   <Fragment key={index}>
-                    <div className="mb-3">
                     <Field
                       id={item.name}
                       name={item.name}
                       label={item.label}
                       component={Input}
-                      validator={validators[item.validator]}
-                    />
-                    {/* <Input
-                      label={item.label} 
-                      name={item.name}
                       type={item.type}
-                      inputRef={item.inputRef}
-                    /> */}
-                    </div>
-
-                    <br/>
+                    />
                   </Fragment>
                 )
               })}

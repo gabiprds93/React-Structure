@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 
 import Form from '../../components/Form/Form';
 import { useTranslation } from "react-i18next";
@@ -7,26 +7,39 @@ const RegisterForm = () => {
   const { t } = useTranslation();
 
   const registerFields = [
-    { label: t('usernameLblAuthRegister'), type: 'text', name: 'username', validator: 'userNameValidator' },
-    { label: t('passwordLblAuthRegister'), type: 'password', name: 'clave', validator: 'userNameValidator' },
-    { label: t('repeatPasswordLblAuthRegister'), type: 'password', name: 'clave', validator: 'userNameValidator' },
+    { label: t('usernameLblAuthRegister'), type: 'text', name: 'username'},
+    { label: t('passwordLblAuthRegister'), type: 'password', name: 'password'},
+    { label: t('repeatPasswordLblAuthRegister'), type: 'password', name: 'repeatPassword'},
   ]
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert(`Submitting`);
+
+  const registerFormValidation = (values: any) => {
+    let errors: any = {};
+  
+    if(!values.username){
+      errors.username = t('inputRequired');
+    }
+  
+    if(!values.password){
+      errors.password = t('inputRequired');
+    }
+
+    if(!values.repeatPassword){
+      errors.repeatPassword = t('inputRequired');
+    }
+
+    if (values.password !== values.repeatPassword) {
+      errors.repeatPassword = t('differentPasswordError')
+    }
+  
+    return errors;
   }
+
   const onSubmit = (dataItem: {
     [name: string]: any;
   }) => alert(JSON.stringify(dataItem, null, 2));
-
-  const validators = {
-    userNameValidator: (value: string) => !value ?
-    "User Name is required" :
-    value.length < 5 ? "User name should be at least 3 characters long." : "",
-  }
   
   return (
-    <Form fields={registerFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={validators}/>
+    <Form fields={registerFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={registerFormValidation}/>
   )
 }
 

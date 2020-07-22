@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Form from '../../components/Form/Form';
 import { loginUser } from '../../redux/actions/userActions'
 import { AuthContext } from '../../context/Auth/AuthContext';
+import { UserCredentials } from '../../redux/types/userTypes';
 
 interface ILoginFormProps {
   loginUser: typeof loginUser
@@ -28,12 +29,18 @@ const LoginForm: React.FC<ILoginFormProps> = ({loginUser}) => {
     { label: t('passwordLblAuth'), type: 'password', name: 'password', inputRef: register, validator: 'passwordValidator'  },
   ]
 
-  const validators = {
-    userNameValidator: (value: string) => !value ?
-    t('inputRequired') : "",
-    passwordValidator: (value: string) => !value ?
-    t('inputRequired') :
-    value.length < 7 ? t('passwordError') : "",
+  const loginFormValidation = (values: UserCredentials) => {
+    let errors: UserCredentials = {};
+  
+    if(!values.email){
+      errors.email = t('inputRequired');
+    }
+  
+    if(!values.password){
+      errors.password = t('inputRequired');
+    }
+  
+    return errors;
   }
 
   const onSubmit = (dataItem: {[name: string]: any;}) => {
@@ -43,7 +50,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({loginUser}) => {
   }
 
   return (
-    <Form fields={loginFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={validators} />
+    <Form fields={loginFields} handleSubmit={onSubmit} btnText={t('sendAuthBtn')} validators={loginFormValidation} />
   )
 }
 

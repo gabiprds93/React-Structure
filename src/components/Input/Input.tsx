@@ -11,19 +11,8 @@ export interface IInputProps {
   validator?: any;
 }
 
-// const Input: React.FC<IInputProps> = ({ label, name, type, inputRef}) => {
-//   return(
-//     <label>
-//       {label}
-//       <input type={type} name={name} ref={inputRef}></input>
-//     </label>
-//   )
-// }
-
-
 const FormInput = (fieldRenderProps: any) => {
   const { validationMessage, touched, label, id, valid, disabled, hint, type, optional, ...others } = fieldRenderProps;
-
   const showValidationMessage = touched && validationMessage;
   const showHint = !showValidationMessage && hint;
   const hintId = showHint ? `${id}_hint` : '';

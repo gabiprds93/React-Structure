@@ -17,7 +17,7 @@
   "passwordLblAuth":"Password",
   "usernameLblAuthRegister":"Username",
   "passwordLblAuthRegister":"Password",
-  "repeatPasswordLblAuthRegister":"Conirm Password",
+  "repeatPasswordLblAuthRegister":"Confirm Password",
   "profileTitle": "Profile",
   "msgApiError":[
     {
@@ -62,5 +62,6 @@
     }
   ],
   "inputRequired": "Required",
-  "passwordError": "Password should be at least 6 characters long."
+  "passwordError": "Password should be at least 6 characters long.",
+  "differentPasswordError": "Passwords do not match."
 }
