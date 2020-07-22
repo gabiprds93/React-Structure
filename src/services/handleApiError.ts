@@ -1,8 +1,14 @@
 const handleApiError = (error: any) => {
   let result;
-  if(error.response){
+  
+  try{
     return result = {
       status: error.response.status,
+    }
+  }
+  catch (error){
+    return result = {
+      status: 0
     }
   }
 }

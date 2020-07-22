@@ -19,7 +19,6 @@ const withError = <P extends object>(Component: React.ComponentType<P>) => {
         hasError: true,
         message: error.message
       })
-      // logErrorToMyService(error, errorInfo);
     }
 
     render() {

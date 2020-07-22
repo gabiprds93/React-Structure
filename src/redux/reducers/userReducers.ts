@@ -24,7 +24,8 @@ export default function reducer(
       return Object.assign({}, state, {
         isFetching: true,
         isAuthenticated: false,
-        creds: action.payload,
+        profile: undefined,
+        errors: undefined
       })
 
     case USER_LOGIN_SUCCESS:
@@ -50,7 +51,7 @@ export default function reducer(
         profile: undefined,
         errors: undefined
       })
-      
+
     default:
       return state
   }
