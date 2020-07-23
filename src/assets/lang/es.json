@@ -66,6 +66,7 @@
   "differentPasswordError": "Las contraseñas no coinciden.",
   "msgApiErrors": {
     "400": "EL servidor no pudo inerpretar la solicitud dada una sintaxsis in valida",
-    "505": "La versión de HTTP usada en la petición no está soportada por el servidor."
+    "505": "La versión de HTTP usada en la petición no está soportada por el servidor.",
+    "666": "Se excedió el límite de tiempo para obtener la respuesta."
   }
 }

@@ -20,7 +20,7 @@ const FormComponent: React.FC<IFormProps> = ({fields, handleSubmit, btnText, val
     <Fragment>
       <Form 
         onSubmit={handleSubmit}
-        validator={error.validators}
+        validator={validators}
         render={(formRenderProps) => (
           <FormElement style={{maxWidth: 650, margin: 'auto'}}>
             <fieldset className={'k-form-fieldset'}>

@@ -8,7 +8,7 @@ const handleApiError = (error: any) => {
   }
   catch (error){
     return result = {
-      status: 0
+      status: 666
     }
   }
 }
