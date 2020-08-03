@@ -24,11 +24,11 @@ const withError = <P extends object>(Component: React.ComponentType<P>) => {
     render() {
       if (this.state.hasError) {
         return(
-          <ErrorMessage msgError={this.state.message} />
+          <ErrorMessage id='errorMessage' msgError={this.state.message} />
         )
       }
 
-      return <Component {...this.props as P} />
+      return <Component id='component' {...this.props as P} />
     }
   }
   return ErrorBoundary;

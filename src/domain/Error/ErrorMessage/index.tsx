@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 interface IErrorMessageProps {
+  id?: string;
   msgError: string;
 }
 const ErrorMessage: React.FC<IErrorMessageProps> = ({msgError}) =>{
