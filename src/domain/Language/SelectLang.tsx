@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 import Select from '../../components/Select/Select';
 import { DropDownListChangeEvent } from '@progress/kendo-react-dropdowns';
-// import {changeLanguage} from '../redux/actions/languageAction';
 
 const langOptions = [ 
   {
@@ -20,7 +19,6 @@ const SelectLang: React.FC<any> = () => {
   const { i18n } = useTranslation();
 
   const handleChange = (event: DropDownListChangeEvent) => {
-    // changeLanguage(lng)
     let lng = event.target.value.id;
     i18n.changeLanguage(lng);
   };
@@ -40,7 +38,4 @@ const SelectLang: React.FC<any> = () => {
   )
 }
 
-// const mapDispatchToProps = { changeLanguage }
-
 export default SelectLang
-// export default connect(null, mapDispatchToProps)(SelectLangContainer)

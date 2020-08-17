@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react';
 import { useTranslation } from "react-i18next";
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useForm } from "react-hook-form";
 
 import Form from '../../components/Form/Form';
@@ -15,8 +15,9 @@ interface ILoginFormProps {
   errors: any
 }
 
-const LoginForm: React.FC<ILoginFormProps> = ({loginUser, errors}) => {
-
+const LoginForm: React.FC<ILoginFormProps> = () => {
+  const errors = useSelector((state: AppState) => state.user.errors);
+  const dispatch = useDispatch()
   const { handleSubmit, register } = useForm();
   const { t } = useTranslation();
 
@@ -46,8 +47,7 @@ const LoginForm: React.FC<ILoginFormProps> = ({loginUser, errors}) => {
   }
 
   const onSubmit = (dataItem: {[name: string]: any;}) => {
-    loginUser(dataItem);
-    //   auth.login()
+    dispatch(loginUser(dataItem));
   }
 
   return (
@@ -60,11 +60,4 @@ const LoginForm: React.FC<ILoginFormProps> = ({loginUser, errors}) => {
   )
 }
 
-const mapStateToProps = (state:AppState) => {
-  return {
-    errors: state.user.errors,
-  }
-}
-const mapDispatchToProps = {loginUser}
-
-export default withError(connect(mapStateToProps, mapDispatchToProps)(LoginForm))
+export default withError(LoginForm)
