@@ -1,24 +1,17 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import { useTranslation } from "react-i18next";
-import { useSelector, useDispatch } from 'react-redux'
-import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from 'react-redux';
 
 import Form from '../../components/Form/Form';
-import { loginUser } from '../../redux/actions/userActions'
+import { loginUser } from '../../redux/actions/userActions';
 import { UserCredentials } from '../../redux/types/userTypes';
 import { AppState } from '../../redux/reducers';
 import ErrorMessage from '../Error/ErrorMessage';
 import withError from '../Error/ErrorBoundary';
 
-interface ILoginFormProps {
-  loginUser: typeof loginUser
-  errors: any
-}
-
-const LoginForm: React.FC<ILoginFormProps> = () => {
+const LoginForm = () => {
   const errors = useSelector((state: AppState) => state.user.errors);
   const dispatch = useDispatch()
-  const { handleSubmit, register } = useForm();
   const { t } = useTranslation();
 
   const loginFields = [
@@ -26,10 +19,8 @@ const LoginForm: React.FC<ILoginFormProps> = () => {
       label: t('usernameLblAuth'),
       type: 'text',
       name: 'email',
-      inputRef: register,
-      validator: 'userNameValidator'
     },
-    { label: t('passwordLblAuth'), type: 'password', name: 'password', inputRef: register, validator: 'passwordValidator'  },
+    { label: t('passwordLblAuth'), type: 'password', name: 'password' },
   ]
 
   const loginFormValidation = (values: UserCredentials) => {

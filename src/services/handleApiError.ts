@@ -2,9 +2,10 @@ const handleApiError = (error: any) => {
   let result;
   
   try{
-    return result = {
+    result = {
       status: error.response.status,
     }
+    return result;
   }
   catch (error){
     return result = {

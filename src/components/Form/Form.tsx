@@ -1,4 +1,4 @@
-import React, {Fragment, FormEvent} from 'react';
+import React, {Fragment} from 'react';
 import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 
@@ -15,7 +15,6 @@ export interface IFormProps {
 }
 
 const FormComponent: React.FC<IFormProps> = ({fields, handleSubmit, btnText, validators}) => {
-  let error:any = undefined
   return (
     <Fragment>
       <Form 

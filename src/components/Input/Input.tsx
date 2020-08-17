@@ -1,13 +1,12 @@
 import React from 'react';
 import { FieldWrapper } from '@progress/kendo-react-form';
-import { Label, Error, Hint, FloatingLabel } from '@progress/kendo-react-labels';
+import { Label, Error, Hint } from '@progress/kendo-react-labels';
 import {Input} from '@progress/kendo-react-inputs';
 
 export interface IInputProps {
   label: string;
   name: string;
   type: string;
-  inputRef?: any;
   validator?: any;
 }
 
